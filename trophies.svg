@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 200" width="450" height="200">
+  <defs>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e23636"/>
+      <stop offset="100%" stop-color="#1b3f8b"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffd966"/>
+      <stop offset="50%" stop-color="#f4c542"/>
+      <stop offset="100%" stop-color="#c8960c"/>
+    </linearGradient>
+    <clipPath id="cardClip">
+      <rect x="2" y="2" width="446" height="196" rx="10"/>
+    </clipPath>
+
+    <g id="trophy-icon">
+      <ellipse cx="0" cy="-8" rx="13" ry="10" fill="url(#goldGrad)"/>
+      <rect x="-13" y="-8" width="26" height="5" rx="2" fill="url(#goldGrad)"/>
+      <path d="M -13 -5 Q -20 -5 -20 3 Q -20 8 -12 8" fill="none" stroke="#f4c542" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M 13 -5 Q 20 -5 20 3 Q 20 8 12 8" fill="none" stroke="#f4c542" stroke-width="2.2" stroke-linecap="round"/>
+      <rect x="-3" y="-3" width="6" height="10" rx="1" fill="#c8960c"/>
+      <rect x="-8" y="7" width="16" height="4" rx="2" fill="#f4c542"/>
+      <rect x="-10" y="11" width="20" height="3" rx="1.5" fill="#1b3f8b"/>
+    </g>
+
+    <g id="thwip-burst">
+      <polygon points="0,-22 4,-10 16,-16 8,-4 22,0 10,6 16,16 4,10 0,22 -4,10 -16,16 -8,6 -22,0 -10,-4 -16,-16 -4,-10" fill="#ff4d4d" opacity="0.85"/>
+      <polygon points="0,-16 3,-8 12,-12 6,-3 16,0 8,5 12,12 3,8 0,16 -3,8 -12,12 -6,5 -16,0 -8,-3 -12,-12 -3,-8" fill="#ffffff" opacity="0.5"/>
+    </g>
+  </defs>
+
+  <style>
+    .card-bg { fill: #0a0e17; stroke: url(#borderGrad); stroke-width: 2; }
+    .title { fill: #ff4d4d; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 2px; }
+    .web-line { stroke: #e23636; stroke-width: 0.7; opacity: 0.15; fill: none; stroke-linecap: round; }
+
+    .trophy-box { fill: #0d131f; stroke: #1b3f8b; stroke-width: 1; }
+    .t-title { fill: #f5f5f5; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 10.5px; text-anchor: middle; }
+    .t-desc { fill: #ff6b6b; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; font-size: 8.5px; text-anchor: middle; }
+    .t-rank { fill: #f4c542; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 900; font-size: 13px; text-anchor: middle; letter-spacing: 1px; }
+
+    .trophy-pos {
+      /* positioning only — no CSS animation here */
+    }
+    .trophy-cell {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .trophy-cell.d1 { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both; }
+    .trophy-cell.d2 { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s both; }
+    .trophy-cell.d3 { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s both; }
+
+    @keyframes popIn {
+      0%   { transform: scale(0); opacity: 0; }
+      60%  { transform: scale(1.15); opacity: 1; }
+      80%  { transform: scale(0.95); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .thwip {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: thwipFX 0.5s ease-out both;
+    }
+    @keyframes thwipFX {
+      0%   { transform: scale(0) rotate(0deg); opacity: 0; }
+      40%  { transform: scale(1.4) rotate(15deg); opacity: 1; }
+      100% { transform: scale(1.8) rotate(30deg); opacity: 0; }
+    }
+
+    .shine {
+      animation: shineSweep 4s ease-in-out infinite;
+    }
+    @keyframes shineSweep {
+      0%, 20% { transform: translateX(-60px) translateY(-60px); opacity: 0; }
+      40%     { opacity: 0.4; }
+      60%, 100% { transform: translateX(120px) translateY(120px); opacity: 0; }
+    }
+  </style>
+
+  <!-- Card Background -->
+  <rect class="card-bg" x="2" y="2" width="446" height="196" rx="10"/>
+
+  <!-- Web corner doodles -->
+  <g clip-path="url(#cardClip)">
+    <!-- Top-left -->
+    <line class="web-line" x1="2" y1="2" x2="2" y2="55"/>
+    <line class="web-line" x1="2" y1="2" x2="55" y2="2"/>
+    <line class="web-line" x1="2" y1="2" x2="40" y2="40"/>
+    <line class="web-line" x1="2" y1="2" x2="15" y2="48"/>
+    <line class="web-line" x1="2" y1="2" x2="48" y2="15"/>
+    <!-- Top-right -->
+    <line class="web-line" x1="448" y1="2" x2="448" y2="55"/>
+    <line class="web-line" x1="448" y1="2" x2="395" y2="2"/>
+    <line class="web-line" x1="448" y1="2" x2="410" y2="40"/>
+    <line class="web-line" x1="448" y1="2" x2="433" y2="48"/>
+    <line class="web-line" x1="448" y1="2" x2="402" y2="15"/>
+    <!-- Bottom-left -->
+    <line class="web-line" x1="2" y1="198" x2="2" y2="145"/>
+    <line class="web-line" x1="2" y1="198" x2="55" y2="198"/>
+    <line class="web-line" x1="2" y1="198" x2="40" y2="160"/>
+    <line class="web-line" x1="2" y1="198" x2="15" y2="152"/>
+    <line class="web-line" x1="2" y1="198" x2="48" y2="185"/>
+    <!-- Bottom-right -->
+    <line class="web-line" x1="448" y1="198" x2="448" y2="145"/>
+    <line class="web-line" x1="448" y1="198" x2="395" y2="198"/>
+    <line class="web-line" x1="448" y1="198" x2="410" y2="160"/>
+    <line class="web-line" x1="448" y1="198" x2="433" y2="152"/>
+    <line class="web-line" x1="448" y1="198" x2="402" y2="185"/>
+  </g>
+
+  <!-- Title -->
+  <text x="225" y="30" class="title" text-anchor="middle">TROPHY VAULT</text>
+
+  <!-- Trophy Cells -->
+  <!-- Cell 1: Super-Committer -->
+  <g class="trophy-pos" transform="translate(30, 42)">
+    <g class="trophy-cell d1">
+      <rect class="trophy-box" x="0" y="0" width="118" height="148" rx="8"/>
+      <use href="#trophy-icon" x="59" y="42"/>
+      <text x="59" y="80" class="t-title">Super-Committer</text>
+      <text x="59" y="95" class="t-desc">1,000+ Commits</text>
+      <text x="59" y="130" class="t-rank">RANK A+</text>
+      <rect class="shine" x="-10" y="0" width="40" height="200" rx="20" fill="url(#shineGrad)" transform="rotate(30 59 74)" opacity="0"/>
+      <g class="thwip" transform="translate(59, 42)" style="animation-delay: 0.5s;">
+        <use href="#thwip-burst" x="0" y="0"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Cell 2: PR Master -->
+  <g class="trophy-pos" transform="translate(165, 42)">
+    <g class="trophy-cell d2">
+      <rect class="trophy-box" x="0" y="0" width="118" height="148" rx="8"/>
+      <use href="#trophy-icon" x="59" y="42"/>
+      <text x="59" y="80" class="t-title">PR Master</text>
+      <text x="59" y="95" class="t-desc">Open Source Contrib</text>
+      <text x="59" y="130" class="t-rank">RANK S</text>
+      <rect class="shine" x="-10" y="0" width="40" height="200" rx="20" fill="url(#shineGrad)" transform="rotate(30 59 74)" opacity="0"/>
+      <g class="thwip" transform="translate(59, 42)" style="animation-delay: 0.7s;">
+        <use href="#thwip-burst" x="0" y="0"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Cell 3: Friendly Dev -->
+  <g class="trophy-pos" transform="translate(300, 42)">
+    <g class="trophy-cell d3">
+      <rect class="trophy-box" x="0" y="0" width="118" height="148" rx="8"/>
+      <use href="#trophy-icon" x="59" y="42"/>
+      <text x="59" y="80" class="t-title">Friendly Dev</text>
+      <text x="59" y="95" class="t-desc">High Engagement</text>
+      <text x="59" y="130" class="t-rank">RANK A</text>
+      <rect class="shine" x="-10" y="0" width="40" height="200" rx="20" fill="url(#shineGrad)" transform="rotate(30 59 74)" opacity="0"/>
+      <g class="thwip" transform="translate(59, 42)" style="animation-delay: 0.9s;">
+        <use href="#thwip-burst" x="0" y="0"/>
+      </g>
+    </g>
+  </g>
+</svg>

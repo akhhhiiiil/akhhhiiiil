@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 740" width="1280" height="740">
+<defs>
+  <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="imageGlow" x="-10%" y="-10%" width="120%" height="120%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <clipPath id="heroClip">
+    <rect x="0" y="0" width="420" height="560" rx="15"/>
+  </clipPath>
+
+  <linearGradient id="redBlueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#e23636"/>
+    <stop offset="100%" stop-color="#3b5bab"/>
+  </linearGradient>
+  <linearGradient id="pillBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#e23636"/>
+    <stop offset="50%" stop-color="#1b3f8b"/>
+    <stop offset="100%" stop-color="#e23636"/>
+  </linearGradient>
+  <linearGradient id="statFill" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#ff4d4d"/>
+    <stop offset="100%" stop-color="#3b5bab"/>
+  </linearGradient>
+  <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#e23636">
+      <animate attributeName="stop-color" values="#e23636;#1b3f8b;#ff4d4d;#e23636" dur="4s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="100%" stop-color="#3b5bab">
+      <animate attributeName="stop-color" values="#3b5bab;#e23636;#3b5bab;#3b5bab" dur="4s" repeatCount="indefinite"/>
+    </stop>
+  </linearGradient>
+  <linearGradient id="heroBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#e23636"/>
+    <stop offset="100%" stop-color="#3b5bab"/>
+  </linearGradient>
+  <linearGradient id="heroGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#e23636" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#3b5bab" stop-opacity="0.4"/>
+  </linearGradient>
+
+  <style><![CDATA[
+    .mono { font-family: 'Fira Code', 'Consolas', 'Courier New', monospace; }
+    .display { font-family: 'Bebas Neue', Impact, 'Arial Black', sans-serif; }
+    .code-kw { fill: #e23636; }
+    .code-str { fill: #f4c542; }
+    .code-tag { fill: #3b5bab; }
+    .code-cm { fill: #888; font-style: italic; }
+    .code-fn { fill: #ff4d4d; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: var(--tw-o, 0.5); }
+      50% { opacity: 0.9; }
+    }
+    @keyframes emberDrift {
+      0% { opacity: var(--em-o, 0.15); transform: translateY(0) translateX(0); }
+      50% { opacity: 0.3; }
+      100% { opacity: 0; transform: translateY(-80px) translateX(20px); }
+    }
+    @keyframes spiderBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.4; }
+    }
+    @keyframes ringExpand {
+      0% { opacity: var(--r-o, 0.45); transform: scale(1); }
+      100% { opacity: 0; transform: scale(2.5); }
+    }
+
+    .tw { animation: twinkle 3s ease-in-out infinite; }
+    .tw:nth-child(odd) { animation-delay: 1.5s; }
+    .tw:nth-child(3n) { animation-delay: 0.7s; }
+    .em { animation: emberDrift 8s ease-in-out infinite; }
+    .em:nth-child(2n) { animation-duration: 10s; animation-delay: 2s; }
+    .em:nth-child(3n) { animation-duration: 6s; animation-delay: 4s; }
+    .sp { animation: spiderBounce 5s ease-in-out infinite; }
+    .sp:nth-child(2) { animation-delay: 1.5s; animation-duration: 6s; }
+    .sp:nth-child(3) { animation-delay: 3s; animation-duration: 7s; }
+    .glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+    .pr { animation: ringExpand 4s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+    .pr:nth-child(2) { animation-delay: 1.3s; }
+    .pr:nth-child(3) { animation-delay: 2.6s; }
+  ]]></style>
+</defs>
+
+<!-- BG -->
+<rect width="1280" height="740" fill="#1a1a2e"/>
+
+<!-- Faint halftone dots -->
+<g opacity="0.02">
+  <pattern id="halftone" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.8" fill="#1a1a2e"/>
+  </pattern>
+  <rect width="1280" height="740" fill="url(#halftone)"/>
+</g>
+
+<!-- Web strands in corners -->
+<g stroke="#1a1a2e" stroke-width="0.4" fill="none" opacity="0.12">
+  <path d="M0,0 C40,60 80,30 120,0"/>
+  <path d="M0,0 C30,40 20,80 0,110"/>
+  <path d="M0,0 L90,90"/>
+  <path d="M0,0 Q50,25 100,0"/>
+  <path d="M1280,0 C1240,60 1200,30 1160,0"/>
+  <path d="M1280,0 C1250,40 1260,80 1280,110"/>
+  <path d="M1280,0 L1190,90"/>
+  <path d="M1280,0 Q1230,25 1180,0"/>
+  <path d="M0,740 C40,680 80,710 120,740"/>
+  <path d="M0,740 C30,700 20,660 0,630"/>
+  <path d="M0,740 L90,650"/>
+  <path d="M1280,740 C1240,680 1200,710 1160,740"/>
+  <path d="M1280,740 C1250,700 1260,660 1280,630"/>
+  <path d="M1280,740 L1190,650"/>
+</g>
+
+<!-- NYC skyline silhouette -->
+<g fill="#c0c8d8" opacity="0.3">
+  <path d="M0,740 L0,700 L25,700 L25,685 L35,685 L35,670 L42,670 L42,685 L55,685 L55,700 L75,700 L75,665 L82,665 L82,655 L88,655 L88,665 L95,665 L95,700 L115,700 L115,675 L122,675 L122,660 L128,660 L128,650 L134,650 L134,660 L140,660 L140,675 L148,675 L148,700 L170,700 L170,645 L178,645 L178,630 L185,630 L185,645 L192,645 L192,700 L215,700 L215,670 L222,670 L222,655 L230,655 L230,670 L238,670 L238,700 L260,700 L260,660 L268,660 L268,645 L275,645 L275,660 L282,660 L282,700 L310,700 L310,655 L318,655 L318,638 L325,638 L325,625 L332,625 L332,638 L340,638 L340,655 L348,655 L348,700 L375,700 L375,675 L382,675 L382,660 L390,660 L390,675 L398,675 L398,700 L420,700 L420,630 L428,630 L428,615 L435,615 L435,600 L442,600 L442,615 L450,615 L450,630 L458,630 L458,700 L485,700 L485,665 L492,665 L492,650 L500,650 L500,665 L508,665 L508,700 L535,700 L535,680 L542,680 L542,665 L550,665 L550,680 L558,680 L558,700 L580,700 L580,640 L588,640 L588,625 L595,625 L595,612 L602,612 L602,625 L610,625 L610,640 L618,640 L618,700 L645,700 L645,670 L652,670 L652,655 L660,655 L660,670 L668,670 L668,700 L695,700 L695,660 L702,660 L702,645 L710,645 L710,660 L718,660 L718,700 L745,700 L745,650 L752,650 L752,635 L760,635 L760,625 L768,625 L768,635 L775,635 L775,650 L782,650 L782,700 L810,700 L810,670 L818,670 L818,655 L825,655 L825,670 L832,670 L832,700 L860,700 L860,620 L868,620 L868,605 L875,605 L875,592 L882,592 L882,605 L890,605 L890,620 L898,620 L898,700 L925,700 L925,665 L932,665 L932,650 L940,650 L940,665 L948,665 L948,700 L975,700 L975,675 L982,675 L982,660 L990,660 L990,675 L998,675 L998,700 L1020,700 L1020,640 L1028,640 L1028,625 L1035,625 L1035,610 L1042,610 L1042,625 L1050,625 L1050,640 L1058,640 L1058,700 L1085,700 L1085,670 L1092,670 L1092,655 L1100,655 L1100,670 L1108,670 L1108,700 L1135,700 L1135,660 L1142,660 L1142,645 L1150,645 L1150,660 L1158,660 L1158,700 L1185,700 L1185,675 L1192,675 L1192,660 L1200,660 L1200,675 L1208,675 L1208,700 L1235,700 L1235,680 L1242,680 L1242,668 L1250,668 L1250,680 L1258,680 L1258,700 L1280,700 L1280,740 Z"/>
+</g>
+
+<!-- Twinkling skyline window lights (static, final opacity) -->
+<circle class="tw" cx="1105" cy="654" r="0.8" fill="#f4c542" opacity="0.5"/>
+<circle class="tw" cx="675" cy="653" r="0.8" fill="#f4c542" opacity="0.6"/>
+<circle class="tw" cx="785" cy="672" r="0.8" fill="#f4c542" opacity="0.4"/>
+<circle class="tw" cx="333" cy="677" r="0.8" fill="#f4c542" opacity="0.7"/>
+<circle class="tw" cx="312" cy="667" r="0.8" fill="#f4c542" opacity="0.3"/>
+<circle class="tw" cx="935" cy="650" r="0.8" fill="#f4c542" opacity="0.6"/>
+<circle class="tw" cx="580" cy="681" r="0.8" fill="#f4c542" opacity="0.5"/>
+<circle class="tw" cx="1161" cy="647" r="0.8" fill="#f4c542" opacity="0.4"/>
+<circle class="tw" cx="455" cy="640" r="0.8" fill="#f4c542" opacity="0.6"/>
+<circle class="tw" cx="141" cy="687" r="0.8" fill="#f4c542" opacity="0.3"/>
+<circle class="tw" cx="23" cy="627" r="0.8" fill="#f4c542" opacity="0.5"/>
+<circle class="tw" cx="972" cy="681" r="0.8" fill="#f4c542" opacity="0.7"/>
+<circle class="tw" cx="1029" cy="685" r="0.8" fill="#f4c542" opacity="0.4"/>
+<circle class="tw" cx="1022" cy="688" r="0.8" fill="#f4c542" opacity="0.6"/>
+<circle class="tw" cx="1069" cy="688" r="0.8" fill="#f4c542" opacity="0.5"/>
+<circle class="tw" cx="41" cy="691" r="0.8" fill="#f4c542" opacity="0.3"/>
+<circle class="tw" cx="1163" cy="626" r="0.8" fill="#f4c542" opacity="0.6"/>
+<circle class="tw" cx="11" cy="634" r="0.8" fill="#f4c542" opacity="0.4"/>
+<circle class="tw" cx="349" cy="628" r="0.8" fill="#f4c542" opacity="0.5"/>
+<circle class="tw" cx="1253" cy="652" r="0.8" fill="#f4c542" opacity="0.7"/>
+<circle class="tw" cx="336" cy="689" r="0.8" fill="#f4c542" opacity="0.4"/>
+<circle class="tw" cx="508" cy="693" r="0.8" fill="#f4c542" opacity="0.6"/>
+<circle class="tw" cx="862" cy="625" r="0.8" fill="#f4c542" opacity="0.5"/>
+<circle class="tw" cx="1210" cy="675" r="0.8" fill="#f4c542" opacity="0.3"/>
+<circle class="tw" cx="69" cy="688" r="0.8" fill="#f4c542" opacity="0.6"/>
+
+<!-- Static ember particles (visible at low opacity) -->
+<rect class="em" x="194" y="457" width="4" height="1" rx="0.5" fill="#f4c542" opacity="0.15"/>
+<rect class="em" x="757" y="463" width="4" height="1" rx="0.5" fill="#f4c542" opacity="0.12"/>
+<rect class="em" x="201" y="359" width="4" height="1" rx="0.5" fill="#f4c542" opacity="0.18"/>
+<rect class="em" x="540" y="390" width="4" height="1" rx="0.5" fill="#f4c542" opacity="0.14"/>
+<rect class="em" x="956" y="357" width="4" height="1" rx="0.5" fill="#ff4d4d" opacity="0.16"/>
+<rect class="em" x="695" y="321" width="4" height="1" rx="0.5" fill="#f4c542" opacity="0.13"/>
+<rect class="em" x="976" y="465" width="4" height="1" rx="0.5" fill="#ff4d4d" opacity="0.11"/>
+<rect class="em" x="624" y="616" width="4" height="1" rx="0.5" fill="#f4c542" opacity="0.15"/>
+<rect class="em" x="389" y="407" width="4" height="1" rx="0.5" fill="#f4c542" opacity="0.10"/>
+<rect class="em" x="851" y="499" width="4" height="1" rx="0.5" fill="#ff4d4d" opacity="0.14"/>
+<rect class="em" x="120" y="380" width="3" height="1" rx="0.5" fill="#f4c542" opacity="0.12"/>
+<rect class="em" x="1100" y="400" width="3" height="1" rx="0.5" fill="#ff4d4d" opacity="0.16"/>
+
+<!-- ===== SPIDERS ON THREADS (static positions) ===== -->
+<!-- Spider 1 top-left -->
+<g class="sp" transform="translate(110,50)">
+  <line x1="0" y1="-50" x2="0" y2="0" stroke="#888" stroke-width="0.4"/>
+  <ellipse cx="0" cy="0" rx="4" ry="5" fill="#444"/>
+  <ellipse cx="0" cy="-6" rx="3" ry="2.5" fill="#444"/>
+  <line x1="-4" y1="-1" x2="-8" y2="-4" stroke="#444" stroke-width="0.7"/>
+  <line x1="4" y1="-1" x2="8" y2="-4" stroke="#444" stroke-width="0.7"/>
+  <line x1="-4" y1="1" x2="-8" y2="4" stroke="#444" stroke-width="0.7"/>
+  <line x1="4" y1="1" x2="8" y2="4" stroke="#444" stroke-width="0.7"/>
+  <line x1="-3" y1="-3" x2="-6" y2="-7" stroke="#444" stroke-width="0.7"/>
+  <line x1="3" y1="-3" x2="6" y2="-7" stroke="#444" stroke-width="0.7"/>
+  <line x1="-3" y1="3" x2="-6" y2="7" stroke="#444" stroke-width="0.7"/>
+  <line x1="3" y1="3" x2="6" y2="7" stroke="#444" stroke-width="0.7"/>
+</g>
+
+<!-- Spider 2 mid-right -->
+<g class="sp" transform="translate(1140,40)">
+  <line x1="0" y1="-40" x2="0" y2="0" stroke="#555" stroke-width="0.4"/>
+  <ellipse cx="0" cy="0" rx="3" ry="4" fill="#444"/>
+  <ellipse cx="0" cy="-5" rx="2.5" ry="2" fill="#444"/>
+  <line x1="-3" y1="-1" x2="-6" y2="-3" stroke="#444" stroke-width="0.6"/>
+  <line x1="3" y1="-1" x2="6" y2="-3" stroke="#444" stroke-width="0.6"/>
+  <line x1="-3" y1="1" x2="-6" y2="3" stroke="#444" stroke-width="0.6"/>
+  <line x1="3" y1="1" x2="6" y2="3" stroke="#444" stroke-width="0.6"/>
+  <line x1="-2" y1="-3" x2="-5" y2="-6" stroke="#444" stroke-width="0.6"/>
+  <line x1="2" y1="-3" x2="5" y2="-6" stroke="#444" stroke-width="0.6"/>
+</g>
+
+<!-- Spider 3 bottom-center -->
+<g class="sp" transform="translate(640,580)">
+  <line x1="0" y1="-100" x2="0" y2="0" stroke="#999" stroke-width="0.3"/>
+  <ellipse cx="0" cy="0" rx="3" ry="3.5" fill="#444"/>
+  <ellipse cx="0" cy="-4.5" rx="2" ry="1.8" fill="#444"/>
+  <line x1="-3" y1="0" x2="-6" y2="-2" stroke="#444" stroke-width="0.5"/>
+  <line x1="3" y1="0" x2="6" y2="-2" stroke="#444" stroke-width="0.5"/>
+  <line x1="-3" y1="1" x2="-6" y2="3" stroke="#444" stroke-width="0.5"/>
+  <line x1="3" y1="1" x2="6" y2="3" stroke="#444" stroke-width="0.5"/>
+</g>
+
+<!-- ===================== RIGHT SIDE — HERO IMAGE ===================== -->
+<!-- Glow halo behind image -->
+<rect x="760" y="100" width="440" height="580" rx="20" fill="url(#heroGlowGrad)" filter="url(#imageGlow)" opacity="0.5"/>
+
+<!-- Static spider-sense concentric rings from head area (~x=980, y=180) -->
+<g filter="url(#neonGlow)">
+  <circle class="pr" cx="980" cy="180" r="30" fill="none" stroke="#e23636" stroke-width="1.5" opacity="0.45"/>
+  <circle class="pr" cx="980" cy="180" r="55" fill="none" stroke="#e23636" stroke-width="1.2" opacity="0.35"/>
+  <circle class="pr" cx="980" cy="180" r="80" fill="none" stroke="#e23636" stroke-width="1" opacity="0.25"/>
+  <circle cx="980" cy="180" r="110" fill="none" stroke="#e23636" stroke-width="0.8" opacity="0.18"/>
+  <circle cx="980" cy="180" r="145" fill="none" stroke="#3b5bab" stroke-width="0.6" opacity="0.12"/>
+  <circle cx="980" cy="180" r="185" fill="none" stroke="#3b5bab" stroke-width="0.4" opacity="0.07"/>
+</g>
+
+<!-- Image container: centered at x=770, width=420, height=560 -->
+<g transform="translate(770,80)">
+  <!-- Red/blue gradient border -->
+  <rect x="-3" y="-3" width="426" height="566" rx="18" fill="none" stroke="url(#heroBorderGrad)" stroke-width="3" opacity="0.8" class="glow-pulse"/>
+
+  <!-- Clip group for image -->
+  <g clip-path="url(#heroClip)">
+    <rect width="420" height="560" fill="#1a1a2e"/>
+    <image href="https://i.postimg.cc/FRLCWRzK/Ingredientsresult.png" x="0" y="0" width="420" height="560" preserveAspectRatio="xMidYMid slice"/>" x="0" y="0" width="420" height="560" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+</g>
+
+<!-- ===================== LEFT SIDE — TEXT CONTENT ===================== -->
+
+<!-- Terminal bar (y: 35) -->
+<g transform="translate(40,35)">
+  <rect x="0" y="0" width="520" height="28" rx="6" fill="#e8e8f0"/>
+  <circle cx="14" cy="14" r="4" fill="#e23636"/>
+  <circle cx="28" cy="14" r="4" fill="#f4c542"/>
+  <circle cx="42" cy="14" r="4" fill="#3b5bab"/>
+  <text class="mono" font-size="13" x="60" y="18" fill="#1a1a2e">
+    <tspan fill="#e23636" font-weight="bold">akhil@spiderverse</tspan><tspan fill="#1a1a2e">:</tspan><tspan fill="#3b5bab">~</tspan><tspan fill="#1a1a2e">$ cat README.md</tspan>
+  </text>
+  <!-- Static red cursor block (no blink) -->
+  <rect x="397" y="6" width="8" height="16" fill="#e23636" opacity="0.9"/>
+</g>
+
+<!-- NAME: Akhil P -->
+<g transform="translate(40,165)">
+  <text class="display" font-size="72" fill="url(#nameGrad)">Akhil P</text>
+</g>
+
+<!-- Underline accent below name -->
+<line x1="40" y1="220" x2="285" y2="220" stroke="url(#redBlueGrad)" stroke-width="2" opacity="0.7"/>
+
+<!-- Subtitle -->
+<g transform="translate(40,0)">
+  <rect x="-5" y="188" width="700" height="24" rx="3" fill="#e8e8f0" opacity="0.9"/>
+  <text class="mono" font-size="14" x="0" y="205" fill="#1a1a2e">AI &amp; DS Student · Full-Stack Dev · Bug-Hunter by Night · Prompt-Slinger</text>
+</g>
+
+<!-- Quote -->
+<g transform="translate(40,250)">
+  <rect x="-5" y="-14" width="700" height="24" rx="3" fill="none" stroke="#f4c542" stroke-width="0.5" opacity="0.5"/>
+  <text class="mono" font-size="13" font-style="italic" y="2" fill="#f4c542">"Slinging code across the stack &#x1F577;&#xFE0F;"</text>
+</g>
+
+<!-- Tech pills -->
+<g transform="translate(40,290)">
+  <g>
+    <rect x="0" y="-14" width="82" height="28" rx="14" fill="none" stroke="url(#pillBorder)" stroke-width="1.5"/>
+    <rect x="1" y="-13" width="80" height="26" rx="13" fill="#1a1a2e" opacity="0.85"/>
+    <text class="mono" font-size="12" x="41" y="4" text-anchor="middle" fill="#1a1a2e">Python</text>
+  </g>
+  <g transform="translate(98,0)">
+    <rect x="0" y="-14" width="72" height="28" rx="14" fill="none" stroke="url(#pillBorder)" stroke-width="1.5"/>
+    <rect x="1" y="-13" width="70" height="26" rx="13" fill="#f5f5f5" opacity="0.85"/>
+    <text class="mono" font-size="12" x="36" y="4" text-anchor="middle" fill="#1a1a2e">Java</text>
+  </g>
+  <g transform="translate(186,0)">
+    <rect x="0" y="-14" width="108" height="28" rx="14" fill="none" stroke="url(#pillBorder)" stroke-width="1.5"/>
+    <rect x="1" y="-13" width="106" height="26" rx="13" fill="#f5f5f5" opacity="0.85"/>
+    <text class="mono" font-size="12" x="54" y="4" text-anchor="middle" fill="#1a1a2e">JavaScript</text>
+  </g>
+  <g transform="translate(310,0)">
+    <rect x="0" y="-14" width="88" height="28" rx="14" fill="none" stroke="url(#pillBorder)" stroke-width="1.5"/>
+    <rect x="1" y="-13" width="86" height="26" rx="13" fill="#f5f5f5" opacity="0.85"/>
+    <text class="mono" font-size="12" x="44" y="4" text-anchor="middle" fill="#1a1a2e">React.js</text>
+  </g>
+  <g transform="translate(414,0)">
+    <rect x="0" y="-14" width="88" height="28" rx="14" fill="none" stroke="url(#pillBorder)" stroke-width="1.5"/>
+    <rect x="1" y="-13" width="86" height="26" rx="13" fill="#f5f5f5" opacity="0.85"/>
+    <text class="mono" font-size="12" x="44" y="4" text-anchor="middle" fill="#1a1a2e">Node.js</text>
+  </g>
+</g>
+
+<!-- About Me section -->
+<g transform="translate(40,335)">
+  <line x1="0" y1="0" x2="700" y2="0" stroke="#bbb" stroke-width="0.5"/>
+  <line x1="0" y1="3" x2="700" y2="3" stroke="#bbb" stroke-width="0.3"/>
+  <text class="mono" font-size="12" x="0" y="22" fill="#555">Currently swinging between AI/ML projects and full-stack builds</text>
+  <text class="mono" font-size="12" x="0" y="42" fill="#aaa">Exploring Generative AI &amp; Prompt Engineering</text>
+  <text class="mono" font-size="12" x="0" y="62" fill="#aaa">Ask me about Python, Java, or ML pipelines</text>
+  <line x1="0" y1="72" x2="700" y2="72" stroke="#bbb" stroke-width="0.5"/>
+  <line x1="0" y1="75" x2="700" y2="75" stroke="#bbb" stroke-width="0.3"/>
+</g>
+
+<!-- ===== CODE EDITOR CARD ===== -->
+<g transform="translate(40,420)">
+  <rect x="0" y="0" width="700" height="205" rx="8" fill="#e8e8f0" stroke="#1b3f8b" stroke-width="1" opacity="0.95"/>
+  <!-- Title bar -->
+  <rect x="0" y="0" width="700" height="28" rx="8" fill="#d8d8e4"/>
+  <rect x="0" y="20" width="700" height="8" fill="#d8d8e4"/>
+  <circle cx="16" cy="14" r="4.5" fill="#e23636"/>
+  <circle cx="32" cy="14" r="4.5" fill="#f4c542"/>
+  <circle cx="48" cy="14" r="4.5" fill="#3b5bab"/>
+  <text class="mono" font-size="11" x="350" y="18" text-anchor="middle" fill="#888">buildDreams.jsx</text>
+
+  <!-- Corner web doodle top-right -->
+  <g transform="translate(670,0)" opacity="0.2" stroke="#555" fill="none" stroke-width="0.5">
+    <path d="M0,0 L30,0 L30,30"/>
+    <path d="M0,0 Q15,5 30,0"/>
+    <path d="M0,0 Q5,15 0,30"/>
+    <path d="M0,0 L20,20"/>
+    <circle cx="15" cy="15" r="8" stroke-width="0.3"/>
+    <circle cx="15" cy="15" r="4" stroke-width="0.3"/>
+  </g>
+
+  <!-- Code content (all visible) -->
+  <text class="mono" font-size="12" x="16" y="50">
+    <tspan class="code-cm">// with great code comes great responsibility</tspan>
+  </text>
+  <text class="mono" font-size="12" x="16" y="70">
+    <tspan class="code-kw">const</tspan><tspan fill="#1a1a2e"> </tspan><tspan class="code-fn">buildDreams</tspan><tspan fill="#1a1a2e"> = () =&gt; {'{'}</tspan>
+  </text>
+  <text class="mono" font-size="12" x="32" y="90">
+    <tspan class="code-kw">return</tspan><tspan fill="#1a1a2e"> (</tspan>
+  </text>
+  <text class="mono" font-size="12" x="48" y="110">
+    <tspan class="code-tag">&lt;Hero</tspan><tspan fill="#3b5bab"> mission</tspan><tspan fill="#1a1a2e">=</tspan><tspan class="code-str">"build the web"</tspan><tspan class="code-tag"> /&gt;</tspan>
+  </text>
+  <text class="mono" font-size="12" x="48" y="130">
+    <tspan class="code-tag">&lt;Stack</tspan><tspan fill="#3b5bab"> skills</tspan><tspan fill="#1a1a2e">=</tspan><tspan class="code-str">"full-stack"</tspan><tspan class="code-tag"> /&gt;</tspan>
+  </text>
+  <text class="mono" font-size="12" x="48" y="150">
+    <tspan class="code-tag">&lt;Passion</tspan><tspan fill="#3b5bab"> fuel</tspan><tspan fill="#1a1a2e">=</tspan><tspan class="code-str">"infinite"</tspan><tspan class="code-tag"> /&gt;</tspan>
+  </text>
+  <text class="mono" font-size="12" x="32" y="170">
+    <tspan fill="#1a1a2e">);</tspan>
+  </text>
+  <text class="mono" font-size="12" x="16" y="190">
+    <tspan fill="#1a1a2e">{'}'}</tspan>
+  </text>
+</g>
+
+<!-- ===== BOTTOM-LEFT — Progress Bar ===== -->
+<g transform="translate(40,635)">
+  <text class="mono" font-size="10" x="0" y="-8" fill="#888">WEB SLINGING CAPABILITY</text>
+  <rect x="0" y="2" width="500" height="6" rx="3" fill="#ddd"/>
+  <!-- Filled to 75% = 375px, statically drawn -->
+  <rect x="0" y="2" width="375" height="6" rx="3" fill="url(#statFill)"/>
+  <!-- Small red circle at fill end -->
+  <circle cx="375" cy="5" r="5" fill="#e23636" filter="url(#softGlow)"/>
+  <!-- Tiny spider legs on the circle -->
+  <line x1="372" y1="3" x2="369" y2="1" stroke="#888" stroke-width="0.5"/>
+  <line x1="378" y1="3" x2="381" y2="1" stroke="#888" stroke-width="0.5"/>
+  <line x1="372" y1="7" x2="369" y2="9" stroke="#888" stroke-width="0.5"/>
+  <line x1="378" y1="7" x2="381" y2="9" stroke="#888" stroke-width="0.5"/>
+</g>
+
+<!-- ===== BOTTOM — Neon Sign (centered) ===== -->
+<g transform="translate(640,690)">
+  <!-- Web filigree bracket frame -->
+  <g stroke="#bbb" fill="none" stroke-width="0.6">
+    <path d="M-310,-30 Q-315,0 -310,30"/>
+    <path d="M-305,-28 L-305,28"/>
+    <path d="M-310,-30 L-305,-28"/>
+    <path d="M-310,30 L-305,28"/>
+    <path d="M-310,-30 L-315,-35"/>
+    <path d="M-310,30 L-315,35"/>
+    <path d="M310,-30 Q315,0 310,30"/>
+    <path d="M305,-28 L305,28"/>
+    <path d="M310,-30 L305,-28"/>
+    <path d="M310,30 L305,28"/>
+    <path d="M310,-30 L315,-35"/>
+    <path d="M310,30 L315,35"/>
+    <path d="M-305,-30 Q0,-42 305,-30"/>
+    <circle cx="0" cy="-36" r="3"/>
+    <path d="M-305,30 Q0,42 305,30"/>
+    <circle cx="0" cy="36" r="3"/>
+  </g>
+
+  <!-- Neon text line 1 -->
+  <text class="display" font-size="30" x="0" y="-3" text-anchor="middle" fill="#ff4d4d" filter="url(#neonGlow)">KEEP CODING</text>
+  <!-- Neon text line 2 -->
+  <text class="display" font-size="30" x="0" y="30" text-anchor="middle" fill="#3b5bab" filter="url(#neonGlow)">KEEP GROWING</text>
+</g>
+
+<!-- Small decorative web bottom-right -->
+<g transform="translate(1220,660)" opacity="0.08" stroke="#1a1a2e" fill="none" stroke-width="0.3">
+  <circle r="30"/>
+  <circle r="20"/>
+  <circle r="10"/>
+  <line x1="-35" y1="0" x2="35" y2="0"/>
+  <line x1="0" y1="-35" x2="0" y2="35"/>
+  <line x1="-25" y1="-25" x2="25" y2="25"/>
+  <line x1="25" y1="-25" x2="-25" y2="25"/>
+</g>
+
+<!-- Small decorative web near code editor -->
+<g transform="translate(720,540)" opacity="0.06" stroke="#e23636" fill="none" stroke-width="0.3">
+  <circle r="20"/>
+  <circle r="12"/>
+  <line x1="-25" y1="0" x2="25" y2="0"/>
+  <line x1="0" y1="-25" x2="0" y2="25"/>
+  <line x1="-18" y1="-18" x2="18" y2="18"/>
+  <line x1="18" y1="-18" x2="-18" y2="18"/>
+</g>
+
+</svg>

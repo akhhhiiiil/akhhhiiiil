@@ -1,0 +1,305 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 650" width="400" height="650">
+  <defs>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c0c8d4"/>
+      <stop offset="25%" stop-color="#8a95a5"/>
+      <stop offset="50%" stop-color="#d0d8e4"/>
+      <stop offset="75%" stop-color="#6a7585"/>
+      <stop offset="100%" stop-color="#b0b8c4"/>
+    </linearGradient>
+    <linearGradient id="ringMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0e8f0"/>
+      <stop offset="30%" stop-color="#9aa5b5"/>
+      <stop offset="60%" stop-color="#c8d0dc"/>
+      <stop offset="100%" stop-color="#7a8595"/>
+    </linearGradient>
+    <linearGradient id="avatarGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e23636"/>
+      <stop offset="50%" stop-color="#ff4d4d"/>
+      <stop offset="100%" stop-color="#1b3f8b"/>
+    </linearGradient>
+    <linearGradient id="holographic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e23636" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#ff4d4d" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#f4c542" stop-opacity="0.08"/>
+      <stop offset="50%" stop-color="#3b5bab" stop-opacity="0.12"/>
+      <stop offset="60%" stop-color="#ff4d4d" stop-opacity="0.08"/>
+      <stop offset="80%" stop-color="#e23636" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#1b3f8b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e23636"/>
+      <stop offset="50%" stop-color="#ff4d4d"/>
+      <stop offset="100%" stop-color="#1b3f8b"/>
+    </linearGradient>
+    <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="strapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c42020"/>
+      <stop offset="30%" stop-color="#e23636"/>
+      <stop offset="70%" stop-color="#d42a2a"/>
+      <stop offset="100%" stop-color="#a81818"/>
+    </linearGradient>
+    <linearGradient id="cardEdge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b3f8b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0a0e17" stop-opacity="0.3"/>
+    </linearGradient>
+    <radialGradient id="avatarRingGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="70%" stop-color="#ff4d4d" stop-opacity="0"/>
+      <stop offset="90%" stop-color="#ff4d4d" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ff4d4d" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <clipPath id="avatarClip">
+      <circle cx="200" cy="278" r="58"/>
+    </clipPath>
+    <clipPath id="cardClip">
+      <rect x="85" y="185" width="230" height="340" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    .swing-group {
+      transform-origin: 200px 0px;
+      animation: dropAndSwing 3s cubic-bezier(0.22, 0.61, 0.36, 1) both,
+                 swayGentle 4s ease-in-out 3s infinite alternate;
+    }
+
+    @keyframes dropAndSwing {
+      0%   { transform: translateY(-420px) rotate(45deg); opacity: 0; }
+      5%   { transform: translateY(-420px) rotate(45deg); opacity: 1; }
+      18%  { transform: translateY(0px) rotate(45deg); }
+      32%  { transform: translateY(0px) rotate(-30deg); }
+      46%  { transform: translateY(0px) rotate(20deg); }
+      60%  { transform: translateY(0px) rotate(-12deg); }
+      74%  { transform: translateY(0px) rotate(6deg); }
+      87%  { transform: translateY(0px) rotate(-3deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    @keyframes swayGentle {
+      0%   { transform: rotate(-1.5deg); }
+      100% { transform: rotate(1.5deg); }
+    }
+
+    .shine-sweep {
+      animation: shineSweep 5s ease-in-out 3.5s infinite;
+    }
+    @keyframes shineSweep {
+      0%, 15%  { transform: translateX(-250px); }
+      40%      { transform: translateX(280px); }
+      50%, 100%{ transform: translateX(280px); }
+    }
+
+    .holo-pulse {
+      animation: holoPulse 6s ease-in-out 3s infinite alternate;
+    }
+    @keyframes holoPulse {
+      0%   { opacity: 0.3; }
+      50%  { opacity: 0.6; }
+      100% { opacity: 0.3; }
+    }
+
+    .web-pulse {
+      animation: webPulse 3s ease-in-out infinite alternate;
+    }
+    @keyframes webPulse {
+      0%   { opacity: 0.2; }
+      100% { opacity: 0.45; }
+    }
+
+    .avatar-pulse {
+      animation: avatarPulse 3s ease-in-out infinite alternate;
+    }
+    @keyframes avatarPulse {
+      0%   { filter: drop-shadow(0 0 4px #ff4d4d); }
+      100% { filter: drop-shadow(0 0 10px #ff4d4d) drop-shadow(0 0 20px #e23636); }
+    }
+  </style>
+
+  <g class="swing-group">
+    <!-- === LANYARD STRAP === -->
+    <!-- Left strap -->
+    <path d="M 172 0 Q 172 80, 195 155" fill="none" stroke="url(#strapGrad)" stroke-width="11" stroke-linecap="round"/>
+    <path d="M 172 0 Q 172 80, 195 155" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="4 8" opacity="0.6"/>
+    <!-- Left strap trim edge -->
+    <path d="M 167 0 Q 167 80, 190 155" fill="none" stroke="#a81818" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- Right strap -->
+    <path d="M 228 0 Q 228 80, 205 155" fill="none" stroke="url(#strapGrad)" stroke-width="11" stroke-linecap="round"/>
+    <path d="M 228 0 Q 228 80, 205 155" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="4 8" opacity="0.6"/>
+    <!-- Right strap trim edge -->
+    <path d="M 233 0 Q 233 80, 210 155" fill="none" stroke="#a81818" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- === METAL CLASP === -->
+    <rect x="193" y="148" width="14" height="18" rx="3" fill="url(#metalGrad)" stroke="#5a6575" stroke-width="1"/>
+    <rect x="196" y="150" width="8" height="4" rx="1" fill="#b0b8c4" opacity="0.6"/>
+    <rect x="196" y="158" width="8" height="4" rx="1" fill="#b0b8c4" opacity="0.6"/>
+    <line x1="196" y1="156" x2="204" y2="156" stroke="#5a6575" stroke-width="0.8"/>
+
+    <!-- Metal ring -->
+    <circle cx="200" cy="175" r="12" fill="none" stroke="url(#ringMetal)" stroke-width="4"/>
+    <circle cx="200" cy="175" r="12" fill="none" stroke="#e0e8f0" stroke-width="1" opacity="0.4"/>
+    <!-- Ring highlight -->
+    <path d="M 193 170 Q 200 163, 207 170" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+
+    <!-- Clip connecting ring to card -->
+    <path d="M 195 187 L 205 187 L 200 197 Z" fill="url(#metalGrad)" stroke="#5a6575" stroke-width="0.8"/>
+    <line x1="200" y1="189" x2="200" y2="195" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- === GLASS ID CARD === -->
+    <g filter="url(#cardShadow)">
+      <g clip-path="url(#cardClip)">
+        <!-- Card body -->
+        <rect x="85" y="185" width="230" height="340" rx="18" fill="#0a0e17"/>
+        <!-- Card border glow -->
+        <rect x="85" y="185" width="230" height="340" rx="18" fill="none" stroke="#1b3f8b" stroke-width="1.5" opacity="0.7"/>
+        <rect x="85" y="185" width="230" height="340" rx="18" fill="none" stroke="#3b5bab" stroke-width="0.5" opacity="0.3"/>
+
+        <!-- === WEB-ETCHED CORNER PATTERNS === -->
+        <!-- Top-left corner web -->
+        <g class="web-pulse" stroke="#ff4d4d" stroke-width="0.6" fill="none" opacity="0.3">
+          <line x1="90" y1="190" x2="90" y2="225"/>
+          <line x1="90" y1="190" x2="125" y2="190"/>
+          <line x1="90" y1="190" x2="115" y2="220"/>
+          <line x1="90" y1="190" x2="120" y2="210"/>
+          <line x1="90" y1="190" x2="110" y2="215"/>
+          <path d="M 90 205 Q 100 200, 110 195" fill="none"/>
+          <path d="M 90 215 Q 105 210, 120 200" fill="none"/>
+          <path d="M 100 190 Q 95 200, 90 210" fill="none"/>
+        </g>
+        <!-- Top-right corner web -->
+        <g class="web-pulse" stroke="#3b5bab" stroke-width="0.6" fill="none" opacity="0.25" style="animation-delay: 0.5s">
+          <line x1="310" y1="190" x2="310" y2="225"/>
+          <line x1="310" y1="190" x2="275" y2="190"/>
+          <line x1="310" y1="190" x2="285" y2="220"/>
+          <line x1="310" y1="190" x2="280" y2="210"/>
+          <line x1="310" y1="190" x2="290" y2="215"/>
+          <path d="M 310 205 Q 300 200, 290 195" fill="none"/>
+          <path d="M 310 215 Q 295 210, 280 200" fill="none"/>
+        </g>
+        <!-- Bottom-left corner web -->
+        <g class="web-pulse" stroke="#3b5bab" stroke-width="0.6" fill="none" opacity="0.25" style="animation-delay: 1s">
+          <line x1="90" y1="520" x2="90" y2="485"/>
+          <line x1="90" y1="520" x2="125" y2="520"/>
+          <line x1="90" y1="520" x2="115" y2="490"/>
+          <line x1="90" y1="520" x2="120" y2="500"/>
+          <path d="M 90 505 Q 100 510, 110 515" fill="none"/>
+          <path d="M 90 495 Q 105 500, 120 510" fill="none"/>
+        </g>
+        <!-- Bottom-right corner web -->
+        <g class="web-pulse" stroke="#ff4d4d" stroke-width="0.6" fill="none" opacity="0.3" style="animation-delay: 1.5s">
+          <line x1="310" y1="520" x2="310" y2="485"/>
+          <line x1="310" y1="520" x2="275" y2="520"/>
+          <line x1="310" y1="520" x2="285" y2="490"/>
+          <line x1="310" y1="520" x2="280" y2="500"/>
+          <path d="M 310 505 Q 300 510, 290 515" fill="none"/>
+          <path d="M 310 495 Q 295 500, 280 510" fill="none"/>
+        </g>
+
+        <!-- === AVATAR SECTION === -->
+        <!-- Outer glow ring -->
+        <circle cx="200" cy="278" r="72" fill="none" stroke="url(#avatarGlow)" stroke-width="2" opacity="0.3"/>
+        <!-- Animated glow pulse behind avatar -->
+        <circle cx="200" cy="278" r="68" fill="url(#avatarRingGlow)" class="avatar-pulse"/>
+        <!-- Main avatar ring -->
+        <circle cx="200" cy="278" r="64" fill="none" stroke="url(#avatarGlow)" stroke-width="3" filter="url(#softGlow)"/>
+
+        <!-- Avatar Image (clipped to circle) -->
+        <g clip-path="url(#avatarClip)">
+          <image href="https://i.postimg.cc/hv3JXS8V/Chat-GPT-Image-Jul-19-2026-09-27-39-AM-11zon.png" x="142" y="220" width="116" height="116"/>
+        </g>
+
+        <!-- === TEXT CONTENT === -->
+        <!-- Decorative line above name -->
+        <line x1="140" y1="355" x2="260" y2="355" stroke="url(#avatarGlow)" stroke-width="0.8" opacity="0.5"/>
+
+        <!-- Name -->
+        <text x="200" y="375" fill="#f5f5f5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="22" text-anchor="middle" letter-spacing="2">AKHIL P</text>
+
+        <!-- Role with colored accent -->
+        <rect x="132" y="383" width="136" height="22" rx="11" fill="#e23636" opacity="0.15"/>
+        <text x="200" y="398" fill="#ff4d4d" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="11" text-anchor="middle" letter-spacing="1">AI &amp; DS STUDENT</text>
+
+        <!-- Handle -->
+        <text x="200" y="424" fill="#3b5bab" font-family="'Cascadia Code', 'Fira Code', 'Consolas', monospace" font-weight="600" font-size="12" text-anchor="middle">@akhil-codez</text>
+
+        <!-- Decorative line below handle -->
+        <line x1="150" y1="435" x2="250" y2="435" stroke="#1b3f8b" stroke-width="0.5" opacity="0.4"/>
+
+        <!-- === BARCODE === -->
+        <g transform="translate(120, 450)" opacity="0.7">
+          <rect x="0"   y="0" width="2.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="4"   y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="7"   y="0" width="3.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="12"  y="0" width="1.5" height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="15"  y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="18"  y="0" width="3"   height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="23"  y="0" width="4.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="29"  y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="32"  y="0" width="2.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="36"  y="0" width="1.5" height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="39"  y="0" width="3.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="44"  y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="47"  y="0" width="2.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="51"  y="0" width="4"   height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="57"  y="0" width="1.5" height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="60"  y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="63"  y="0" width="3"   height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="68"  y="0" width="2"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="72"  y="0" width="3.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="77"  y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="80"  y="0" width="2"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="84"  y="0" width="4"   height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="90"  y="0" width="1.5" height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="93"  y="0" width="2.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="97"  y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="100" y="0" width="3"   height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="105" y="0" width="2"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="109" y="0" width="1.5" height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="112" y="0" width="3.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="117" y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="120" y="0" width="2.5" height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="125" y="0" width="1.5" height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="128" y="0" width="4"   height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="134" y="0" width="1"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <rect x="137" y="0" width="3"   height="20" fill="#f5f5f5" rx="0.3"/>
+          <rect x="142" y="0" width="2"   height="20" fill="#f5f5f5" rx="0.2"/>
+          <text x="73" y="33" fill="#3a4a6b" font-family="'Cascadia Code', monospace" font-size="7" text-anchor="middle" letter-spacing="1">AKHIL-001</text>
+        </g>
+
+        <!-- === HOLOGRAPHIC SHINE SWEEP === -->
+        <g class="shine-sweep" clip-path="url(#cardClip)">
+          <rect x="0" y="185" width="60" height="340" fill="url(#shineGrad)" opacity="0.8"/>
+        </g>
+
+        <!-- === HOLOGRAPHIC OVERLAY === -->
+        <rect x="85" y="185" width="230" height="340" rx="18" fill="url(#holographic)" class="holo-pulse"/>
+
+        <!-- Top edge highlight line -->
+        <line x1="110" y1="186" x2="290" y2="186" stroke="#3b5bab" stroke-width="0.5" opacity="0.5"/>
+      </g>
+    </g>
+  </g>
+</svg>
