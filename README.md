@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/30166069/README.md)
+[README.md](https://github.com/user-attachments/files/30166232/README.md)
 <div align="center">
 
   <!-- Banners Dark/Light Switching -->
@@ -48,45 +48,11 @@
 
   <br/>
 
-  <!-- Projects Table -->
+  <!-- Projects Widget -->
   <h2>Projects</h2>
-
-  <table align="center" width="90%">
-    <thead>
-      <tr style="background-color: #0d131f;">
-        <th align="left"><b>Project</b></th>
-        <th align="left"><b>Tech Stack</b></th>
-        <th align="left"><b>Description</b></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><b><a href="https://github.com/akhil-codez/malluprompter">MalluPrompter</a></b></td>
-        <td>TypeScript</td>
-        <td>Prompt engineering tool deployed on Vercel</td>
-      </tr>
-      <tr>
-        <td><b><a href="https://github.com/akhil-codez/ps-agent">PS Agent</a></b></td>
-        <td>Python</td>
-        <td>AI agent for problem-solving, deployed on Vercel</td>
-      </tr>
-      <tr>
-        <td><b><a href="https://github.com/akhil-codez/DriverWarningSystem">Driver Warning System</a></b></td>
-        <td>Jupyter Notebook</td>
-        <td>ML-based driver drowsiness detection system</td>
-      </tr>
-      <tr>
-        <td><b><a href="https://github.com/akhil-codez/Fabsdentalclinic">Fabs Dental Clinic</a></b></td>
-        <td>JavaScript</td>
-        <td>Full-stack dental clinic management web app</td>
-      </tr>
-      <tr>
-        <td><b><a href="https://github.com/akhil-codez/healthconnectv2">HealthConnect v2</a></b></td>
-        <td>TypeScript</td>
-        <td>Health and wellness tracking platform</td>
-      </tr>
-    </tbody>
-  </table>
+  <a href="https://github.com/akhil-codez?tab=repositories">
+    <img src="projects.svg?v=2" width="90%" alt="Projects" />
+  </a>
 
   <br/><br/>
 
