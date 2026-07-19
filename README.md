@@ -49,7 +49,7 @@
   <br/>
 
   <!-- Projects Widget -->
-  <h2>Projects</h2>
+  <!-- <h2>Projects</h2> -->
   <a href="https://github.com/akhil-codez?tab=repositories">
     <img src="projects.svg?v=2" width="90%" alt="Projects" />
   </a>
