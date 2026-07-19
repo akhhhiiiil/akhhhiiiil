@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/30165539/README.md)
+[README.md](https://github.com/user-attachments/files/30166003/README.md)
 <div align="center">
 
   <!-- Banners Dark/Light Switching -->
@@ -10,17 +10,21 @@
 
   <br/><br/>
 
-  <!-- Lanyard Left + Languages Right -->
-  <p align="center">
-    <img alt="Akhil P Lanyard" src="lanyard.svg?v=2" width="300px" />
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="langs.svg?v=2" width="400px" alt="Languages" />
-  </p>
+  <!-- Lanyard Left | Languages + Stats Right -->
+  <table align="center">
+    <tr>
+      <td align="center" valign="top" style="padding-right:20px">
+        <img alt="Akhil P Lanyard" src="lanyard.svg?v=2" width="300px" />
+      </td>
+      <td align="center" valign="top">
+        <img src="langs.svg?v=2" width="420px" alt="Languages" />
+        <br/><br/>
+        <img src="stats.svg?v=2" width="420px" alt="Spider Status" />
+      </td>
+    </tr>
+  </table>
 
   <br/>
-
-  <!-- Stats Row -->
-  <img src="stats.svg?v=2" width="50%" alt="Spider Status" />
 
   <br/><br/>
 
